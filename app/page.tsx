@@ -1,8 +1,22 @@
+'use client'
 import Image from 'next/image'
 import Button from '@/components/Button'
+import { useRef } from 'react'
 export default function Home() {
+  const handleClick = () => {
+    if (inputRef.current == null || inputRef.current.value === '') {
+      alert('name을 넣어주세요')
+      return
+    }
+    fetch(`/api/add-items?name=${inputRef.current.value}`)
+      .then((res) => res.json())
+      .then((data) => alert(data.message))
+  }
+  const inputRef = useRef<HTMLInputElement>(null)
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <input ref={inputRef} type="text" placeholder="name" />
+      <button onClick={handleClick}>Add Jacket</button>
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
           Get started by editing&nbsp;
