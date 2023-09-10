@@ -38,7 +38,7 @@ export default async function handler(
 ) {
   try {
     const response = await getItem()
-    res.status(200).json({ items: response?.results, message: `Sucess` })
+    res.status(200).json({ items: response?.results, message: `Sucesss` })
   } catch (error) {
     res.status(400).json({ message: `Failed` })
   }
