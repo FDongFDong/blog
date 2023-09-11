@@ -43,6 +43,7 @@ export default function Home() {
         type="text"
         name="search"
       />
+      <div></div>
       <button
         css={css`
           background-color: hotpink;
@@ -53,6 +54,7 @@ export default function Home() {
       >
         Add Jacket
       </button>
+      <div></div>
       <Button onClick={handleClick}>Add Jacket2</Button>
       <div>
         <p>Product List</p>
